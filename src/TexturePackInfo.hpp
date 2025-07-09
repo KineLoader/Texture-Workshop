@@ -30,7 +30,7 @@ public:
         texturePack = tp;
         texturePack->popup = this;
 
-        std::filesystem::path filePath = fmt::format("{}/packs/{}.zip", Loader::get()->getInstalledMod("oki3ed.kineloader")->getConfigDir(), tp->name);
+        std::filesystem::path filePath = fmt::format("{}/{}.zip", Loader::get()->getInstalledMod("oki3ed.kineloader")->getConfigDir(), tp->name);
 
         auto winSize = CCDirector::get()->getWinSize();
         float scale = CCDirector::sharedDirector()->getContentScaleFactor()/4;
@@ -198,7 +198,7 @@ public:
                 "Nope", "Yeah",
                 [this](auto, bool btn2) {
                     if (btn2) {
-                        std::string fileName = fmt::format("{}/packs/{}.zip", Loader::get()->getInstalledMod("oki3ed.kineloader")->getConfigDir(), texturePack->name);
+                        std::string fileName = fmt::format("{}/{}.zip", Loader::get()->getInstalledMod("oki3ed.kineloader")->getConfigDir(), texturePack->name);
                         std::filesystem::remove(fileName);
                         Notification::create(fmt::format("Deleted {}!", texturePack->name), CCSprite::createWithSpriteFrameName("GJ_completesIcon_001.png"))->show();
                         this->onClose(nullptr);

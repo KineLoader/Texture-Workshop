@@ -51,7 +51,7 @@ class TexturePackCell : public CCLayerColor {
             this->setAnchorPoint(ccp(0, 1));
             this->setPositionY(207);
 
-            std::filesystem::path filePath = fmt::format("{}/packs/{}.zip", Loader::get()->getInstalledMod("oki3ed.kineloader")->getConfigDir(), tp->name);
+            std::filesystem::path filePath = fmt::format("{}/{}.zip", Loader::get()->getInstalledMod("oki3ed.kineloader")->getConfigDir(), tp->name);
             float scale = CCDirector::sharedDirector()->getContentScaleFactor()/4;
 
             gradient = CCLayerGradient::create(ccc4(0, 0, 0, 100), ccc4(0, 255, 0, 100));
@@ -280,7 +280,7 @@ class TexturePackCell : public CCLayerColor {
                 "Nope", "Yeah",
                 [this](auto, bool btn2) {
                     if (btn2) {
-                        std::string fileName = fmt::format("{}/packs/{}.zip", Loader::get()->getInstalledMod("oki3ed.kineloader")->getConfigDir(), texturePack->name);
+                        std::string fileName = fmt::format("{}/{}.zip", Loader::get()->getInstalledMod("oki3ed.kineloader")->getConfigDir(), texturePack->name);
                         std::filesystem::remove(fileName);
                         Notification::create(fmt::format("Deleted {}!", texturePack->name), CCSprite::createWithSpriteFrameName("GJ_completesIcon_001.png"))->show();
                         TextureWorkshopLayer::get->onRefresh(nullptr);
