@@ -22,8 +22,8 @@
 	},
 	"dependencies": [
 		{
-			"id": "geode.texture-loader",
-            "version": ">=1.6.0",
+			"id": "oki3ed.kineloader",
+            "version": ">=1.0.0",
             "importance": "required"
 		},
 		{
