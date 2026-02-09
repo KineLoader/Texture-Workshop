@@ -30,7 +30,7 @@ public:
         texturePack = tp;
         texturePack->popup = this;
 
-        std::filesystem::path filePath = fmt::format("{}/packs/{}.zip", Loader::get()->getInstalledMod("geode.texture-loader")->getConfigDir(), tp->name);
+        std::filesystem::path filePath = fmt::format("{}/packs/{}.zip", Loader::get()->getInstalledMod("kine.loader2")->getConfigDir(), tp->name);
 
         auto winSize = CCDirector::get()->getWinSize();
         float scale = CCDirector::sharedDirector()->getContentScaleFactor()/4;
