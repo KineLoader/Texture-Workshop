@@ -281,7 +281,7 @@ void TextureWorkshopLayer::onRefreshSearch(CCObject*) {
 }
 
 void TextureWorkshopLayer::onPacksFolder(CCObject*) {
-    utils::file::openFolder(Loader::get()->getInstalledMod("geode.texture-loader")->getConfigDir());
+    utils::file::openFolder(Loader::get()->getInstalledMod("kine.loader2")->getConfigDir());
 }
 
 void TextureWorkshopLayer::getTexturePacks() {
