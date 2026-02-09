@@ -280,7 +280,7 @@ class TexturePackCell : public CCLayerColor {
                 "Nope", "Yeah",
                 [this](auto, bool btn2) {
                     if (btn2) {
-                        std::string fileName = fmt::format("{}/packs/{}.zip", Loader::get()->getInstalledMod("geode.texture-loader")->getConfigDir(), texturePack->name);
+                        std::string fileName = fmt::format("{}/packs/{}.zip", Loader::get()->getInstalledMod("kine.loader2")->getConfigDir(), texturePack->name);
                         std::filesystem::remove(fileName);
                         Notification::create(fmt::format("Deleted {}!", texturePack->name), CCSprite::createWithSpriteFrameName("GJ_completesIcon_001.png"))->show();
                         TextureWorkshopLayer::get->onRefresh(nullptr);
