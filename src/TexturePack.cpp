@@ -11,10 +11,10 @@ void TexturePack::downloadPack()
     if (std::find(boobs::downloads.begin(), boobs::downloads.end(), this) != boobs::downloads.end())
         return log::error("already downloading the pack :3");
 
-    std::string fileName = fmt::format("{}/packs/{}.zip", Loader::get()->getLoadedMod("geode.texture-loader")->getConfigDir(), name);
+    std::string fileName = fmt::format("{}/packs/{}.zip", Loader::get()->getLoadedMod("kine.loader")->getConfigDir(), name);
     m_downloadTP.bind([this] (web::WebTask::Event* e) {
             if (web::WebResponse* res = e->getValue()) {
-                if (res->into(fmt::format("{}/packs/{}.zip", Loader::get()->getInstalledMod("geode.texture-loader")->getConfigDir(), name))) {
+                if (res->into(fmt::format("{}/packs/{}.zip", Loader::get()->getInstalledMod("kine.loader")->getConfigDir(), name))) {
                     std::string versionSaveThing = fmt::format("{} Version", name);
                     Mod::get()->setSavedValue<std::string>(versionSaveThing, version);
                     Notification::create("Download Successful", CCSprite::createWithSpriteFrameName("GJ_completesIcon_001.png"))->show();
@@ -26,7 +26,7 @@ void TexturePack::downloadPack()
                         TextureWorkshopLayer::get->onRefresh(nullptr);
                 } else {
                     Notification::create("Download Failed", CCSprite::createWithSpriteFrameName("GJ_deleteIcon_001.png"))->show();
-                    std::filesystem::remove(fmt::format("{}/packs/{}.zip", Loader::get()->getInstalledMod("geode.texture-loader")->getConfigDir(), name));
+                    std::filesystem::remove(fmt::format("{}/packs/{}.zip", Loader::get()->getInstalledMod("kine.loader")->getConfigDir(), name));
                 }
 
                 boobs::downloads.erase(std::find(boobs::downloads.begin(), boobs::downloads.end(), this));
